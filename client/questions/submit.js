@@ -1,5 +1,4 @@
 import React from 'react'
-import {App} from 'app'
 
 var Submit = React.createClass({
     render: function(){
@@ -23,8 +22,8 @@ var Submit = React.createClass({
                 //error
             }
             else if(markedAnswerElement.length === 1){
-                var app = thisComponent._reactInternalInstance._currentElement._owner._instance
-                app.nextQuestion()
+                var questionsScreen = thisComponent._reactInternalInstance._currentElement._owner._instance
+                questionsScreen.nextQuestion()
             }
             else {
                 //programmer mistake
