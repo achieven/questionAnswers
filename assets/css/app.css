@@ -1,7 +1,7 @@
 #questionsAnswersBackground {
     background-color: #0d2c3d;
 }
-hr {
+#questionAnswersHr {
     color: white;
     height: 1px;
     opacity: 0.25;

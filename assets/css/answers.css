@@ -1,8 +1,13 @@
 .form-control.answerText {
-    color: white;
     background-color: #0d2c3d;
     border: none;
     word-wrap: break-word;
     overflow: hidden;
     height: auto;
+}
+.form-control.answerTextUnmarked {
+    color: rgba(255, 255, 255, 0.85);
+}
+.form-control.answerTextMarked {
+    color: #00bdff;
 }

@@ -11,22 +11,22 @@ var Navbar = React.createClass({
             <div className="container">
                 <div className="row-fluid">
                     <div className="col-xs-2 number-common-properties" id="number1">1</div>
-                    <div className="col-xs-2 number-common-properties col-half-offset" id="number2">1</div>
-                    <div className="col-xs-2 number-common-properties col-half-offset" id="number3">1</div>
-                    <div className="col-xs-2 number-common-properties col-half-offset" id="number4">1</div>
-                    <div className="col-xs-2 number-common-properties col-half-offset" id="number5">1</div>
+                    <div className="col-xs-2 number-common-properties col-half-offset" id="number2">2</div>
+                    <div className="col-xs-2 number-common-properties col-half-offset" id="number3">3</div>
+                    <div className="col-xs-2 number-common-properties col-half-offset" id="number4">4</div>
+                    <div className="col-xs-2 number-common-properties col-half-offset" id="number5">5</div>
                 </div>
             </div>
         )
     },
-    componentDidUpdate: function () {
-        $('#number' + this.state.questionNumber).addClass('numberCircle')
+    changeQuestion: function(newQuestionNumber){
+        if(this.questionNumber){
+            $('#number' + this.questionNumber).removeClass('numberCircle')  
+        }
+        $('#number' + newQuestionNumber).addClass('numberCircle')
+        this.questionNumber = newQuestionNumber
     },
-    componentDidMount: function () {
-        this.setState({
-            questionNumber: 1
-        })
-    }
+  
 })
 
 module.exports = Navbar
