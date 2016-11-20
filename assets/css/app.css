@@ -6,3 +6,10 @@ hr {
     height: 1px;
     opacity: 0.25;
 }
+
+input {
+    color: #ff0000;
+}
+input:focus {
+    color: #ff0000;
+}
