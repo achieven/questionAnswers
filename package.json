@@ -6,7 +6,7 @@
   "scripts": {
     "unitTests": "mocha test/unitTests",
     "browserTests": "node test/browserTests/test.js",
-    "node": "nodemon"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",

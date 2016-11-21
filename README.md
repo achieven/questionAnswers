@@ -1,14 +1,12 @@
 Prerequisites:    
-npm    
+npm, node
+clone repository and cd into it
 
-To run app:    
-Prerequisites:    
-nodemon globaly (npm i nodemon -g)    
+To run app:
 
-Type the following to comand line:    
-clone repository and cd into it    
+Type the following to comand line:
 npm i --production    
-npm run node    
+npm start
 
 To run tests:    
 npm i    
@@ -24,7 +22,7 @@ browser tests:
 Prerequisites:    
 geckodriver, firefox 47+ (included in PATH)    
 
-npm run node    
+npm start
 npm run browserTests (on different window)    
 
 

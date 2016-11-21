@@ -1,4 +1,5 @@
 import React from 'react'
+import AnswerWithButton from './answerWithButton'
 
 var Answers = React.createClass({
     getInitialState: function () {
@@ -18,80 +19,35 @@ var Answers = React.createClass({
     render: function () {
         return (
             <div className="container">
-                <form action="">
-                    <div className="row">
-                        <div className="col-xs-1">
-                            <input className="form-control" name="answer" value="first" type="radio" id="answerInput1"/>
-                        </div>
-                        <div className="col-xs-11">
-                            <label className={this.state.answer1ClassName}
-                                   id="answerText1">{this.state.answer1Text}</label>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-xs-1">
-                            <input className="form-control" name="answer" value="second" type="radio"
-                                   id="answerInput2"/>
-                        </div>
-                        <div className="col-xs-11">
-                            <label className={this.state.answer2ClassName}
-                                   id="answerText2">{this.state.answer2Text}</label>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-xs-1">
-                            <input className="form-control" name="answer" value="third" type="radio" id="answerInput3"/>
-                        </div>
-                        <div className="col-xs-11">
-                            <label className={this.state.answer3ClassName}
-                                   id="answerText3">{this.state.answer3Text}</label>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-xs-1">
-                            <input className="form-control" name="answer" value="fourth" type="radio"
-                                   id="answerInput4"/>
-                        </div>
-                        <div className="col-xs-11">
-                            <label className={this.state.answer4ClassName}
-                                   id="answerText4">{this.state.answer4Text}</label>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-xs-1">
-                            <input className="form-control" name="answer" value="fifth" type="radio" id="answerInput5"/>
-                        </div>
-                        <div className="col-xs-11">
-                            <label className={this.state.answer5ClassName}
-                                   id="answerText5">{this.state.answer5Text}</label>
-                        </div>
-                    </div>
-                </form>
+                <AnswerWithButton answerClassName={this.state.answer1ClassName} answerText={this.state.answer1Text} id={1}></AnswerWithButton>
+                <AnswerWithButton answerClassName={this.state.answer2ClassName} answerText={this.state.answer2Text} id={2}></AnswerWithButton>
+                <AnswerWithButton answerClassName={this.state.answer3ClassName} answerText={this.state.answer3Text} id={3}></AnswerWithButton>
+                <AnswerWithButton answerClassName={this.state.answer4ClassName} answerText={this.state.answer4Text} id={4}></AnswerWithButton>
+                <AnswerWithButton answerClassName={this.state.answer5ClassName} answerText={this.state.answer5Text} id={5}></AnswerWithButton>
             </div>
         )
     },
     changeAnswers: function (answersArray) {
         $(this.markedAnswerRadioButtonElement).prop('checked', false)
-        $(this.markedAnswerElement).removeClass('answerTextMarked').addClass('answerTextUnmarked')
+        $(this.markedAnswerTextElement).removeClass('answerTextMarked').addClass('answerTextUnmarked')
         this.setState({
             answer1Text: answersArray[0],
             answer2Text: answersArray[1],
             answer3Text: answersArray[2],
             answer4Text: answersArray[3],
-            answer5Text: answersArray[4],
+            answer5Text: answersArray[4]
         })
     },
     componentDidMount: function () {
         var thisComponent = this
         $('[name="answer"]').on('click', function (e) {
-            
             var answerTextId = e.target.getAttribute('id').replace('Input', 'Text')
             var markedAnswerTextHtmlElement = $('#' + answerTextId)
-            if (thisComponent.markedAnswerElement) {
-                thisComponent.markedAnswerElement.removeClass('answerTextMarked').addClass('answerTextUnmarked')
+            if (thisComponent.markedAnswerTextElement) {
+                thisComponent.markedAnswerTextElement.removeClass('answerTextMarked').addClass('answerTextUnmarked')
             }
             $(markedAnswerTextHtmlElement).removeClass('answerTextUnmarked').addClass('answerTextMarked')
-            thisComponent.markedAnswerElement = markedAnswerTextHtmlElement
+            thisComponent.markedAnswerTextElement = markedAnswerTextHtmlElement
             thisComponent.markedAnswerRadioButtonElement = e.target
         })
     }

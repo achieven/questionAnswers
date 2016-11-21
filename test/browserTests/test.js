@@ -11,9 +11,41 @@ var questionNumber = 1
 function submitWithoutChoosingAnswer() {
     browser.findElement(By.id('submitQuestion')).click().then(function () {
         browser.findElement(By.className('submitQuestionError')).then(function (submitQuestionErrorElement) {
-            submitQuestionErrorElement.getText().then(function(numberCircleText){
+            submitQuestionErrorElement.getText().then(function (numberCircleText) {
                 assert.equal(numberCircleText, 'Please select an answer')
-                clickAnswer()
+                navigateBetweenAnswers()
+            })
+        })
+    })
+}
+
+function navigateBetweenAnswers(){
+    browser.findElement(By.id('answerInput5')).click().then(function () {
+        browser.findElement(By.className('answerTextMarked')).then(function (markedAnswerTextElement) {
+            markedAnswerTextElement.getAttribute('id').then(function (markedAnswerId) {
+                assert.equal(markedAnswerId, 'answerText5')
+                browser.findElement(By.id('answerInput4')).click().then(function () {
+                    browser.findElement(By.className('answerTextMarked')).then(function (markedAnswerTextElement) {
+                        markedAnswerTextElement.getAttribute('id').then(function (markedAnswerId) {
+                            assert.equal(markedAnswerId, 'answerText4')
+                            browser.findElement(By.id('answerInput3')).click().then(function () {
+                                browser.findElement(By.className('answerTextMarked')).then(function (markedAnswerTextElement) {
+                                    markedAnswerTextElement.getAttribute('id').then(function (markedAnswerId) {
+                                        assert.equal(markedAnswerId, 'answerText3')
+                                        browser.findElement(By.id('answerInput2')).click().then(function () {
+                                            browser.findElement(By.className('answerTextMarked')).then(function (markedAnswerTextElement) {
+                                                markedAnswerTextElement.getAttribute('id').then(function (markedAnswerId) {
+                                                    assert.equal(markedAnswerId, 'answerText2')
+                                                    clickAnswer()
+                                                })
+                                            })
+                                        })
+                                    })
+                                })
+                            })
+                        })
+                    })
+                })
             })
         })
     })
@@ -24,12 +56,12 @@ function submitAndMoveToNextQuestion() {
     testCurrentQuestionScreen(questionNumber)
 }
 
-function submitAndMoveToSummaryPage(){
+function submitAndMoveToSummaryPage() {
     browser.findElement(By.id('submitQuestion')).click().then(function () {
-        browser.findElements(By.className('generalTextColor')).then(function(generalTextColorElements){
-            generalTextColorElements.forEach(function(element, index){
-                element.getText().then(function(elementText){
-                    switch(index){
+        browser.findElements(By.className('generalTextColor')).then(function (generalTextColorElements) {
+            generalTextColorElements.forEach(function (element, index) {
+                element.getText().then(function (elementText) {
+                    switch (index) {
                         case 1:
                             assert.equal(elementText, 'Question number: 1, Status: false, You answered: 1,Correct answer is: 3✖')
                             break
@@ -46,9 +78,8 @@ function submitAndMoveToSummaryPage(){
                             assert.equal(elementText, 'Question number: 5, Status: false, You answered: 1,Correct answer is: 4✖')
                             console.log('finished!')
                             break
-                        default: 
+                        default:
                             break
-                            
                     }
                 })
             })
@@ -57,28 +88,36 @@ function submitAndMoveToSummaryPage(){
 }
 
 function clickAnswer() {
-    browser.findElement(By.id('answerInput1')).click().then(function(){
-            if(questionNumber < 5){
-                browser.findElement(By.id('submitQuestion')).click().then(function () {
-                    submitAndMoveToNextQuestion()
-                })
-            }
-            else {
-                submitAndMoveToSummaryPage()
-            }
+    browser.findElement(By.id('answerInput1')).click().then(function () {
+        browser.findElement(By.className('answerTextMarked')).then(function (markedAnswerTextElement) {
+            markedAnswerTextElement.getAttribute('id').then(function(markedAnswerId){
+                assert.equal(markedAnswerId, 'answerText1')
+                if(questionNumber < 5){
+                    browser.findElement(By.id('submitQuestion')).click().then(function () {
+                        submitAndMoveToNextQuestion()
+                    })
+                }
+                else {
+                    submitAndMoveToSummaryPage()
+                }
+            })
         })
+    })
 }
 
 function testCurrentQuestionScreen() {
     browser.findElement(By.className('numberCircle')).then(function (numberCircleElement) {
         numberCircleElement.getText().then(function (numberCircleText) {
             assert.equal(numberCircleText, questionNumber)
-            if(questionNumber === 1){
-                submitWithoutChoosingAnswer()
-            }
-            else {
-                clickAnswer()
-            }
+            browser.findElements(By.className('answerTextMarked')).then(function (markedAnswerElements) {
+                assert.equal(markedAnswerElements, 0)
+                if (questionNumber === 1) {
+                    submitWithoutChoosingAnswer()
+                }
+                else {
+                    clickAnswer()
+                }
+            })
         })
     })
 }
