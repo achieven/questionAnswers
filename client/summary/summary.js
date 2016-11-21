@@ -1,6 +1,5 @@
 import React from 'react'
 import QuestionSummary from './questionSummary'
-import SummaryUtil from '../util/summary/summary'
 
 
 var Summary = React.createClass({
