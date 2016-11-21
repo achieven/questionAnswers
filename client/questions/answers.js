@@ -12,7 +12,7 @@ var Answers = React.createClass({
             answer2ClassName: this.props.answer2Text || 'form-control answerText answerTextUnmarked',
             answer3ClassName: this.props.answer3Text || 'form-control answerText answerTextUnmarked',
             answer4ClassName: this.props.answer4Text || 'form-control answerText answerTextUnmarked',
-            answer5ClassName: this.props.answer5Text || 'form-control answerText answerTextUnmarked',
+            answer5ClassName: this.props.answer5Text || 'form-control answerText answerTextUnmarked'
         }
     },
     render: function () {
@@ -84,6 +84,7 @@ var Answers = React.createClass({
     componentDidMount: function () {
         var thisComponent = this
         $('[name="answer"]').on('click', function (e) {
+            
             var answerTextId = e.target.getAttribute('id').replace('Input', 'Text')
             var markedAnswerTextHtmlElement = $('#' + answerTextId)
             if (thisComponent.markedAnswerElement) {

@@ -11,9 +11,9 @@ var App = React.createClass({
             </div>
         )
     },
-    showSummary: function(){
+    showSummary: function(correctAndIncorrectQuestions){
         this.refs.questionsScreen.hide()
-        this.refs.summary.show()
+        this.refs.summary.show(correctAndIncorrectQuestions)
     },
     componentDidMount: function(){
         this.refs.questionsScreen.show()

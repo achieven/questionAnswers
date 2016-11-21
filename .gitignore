@@ -1,3 +1,4 @@
 node_modules
 .idea
 tudo.txt
+npm-debug.log

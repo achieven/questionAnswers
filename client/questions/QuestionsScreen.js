@@ -3,6 +3,7 @@ import Navbar from './navbar'
 import Question from './question'
 import Answers from './answers'
 import Submit from './submit'
+import QuestionsScreenUtil from '../util/questions/questionsScreen'
 
 
 var QuestionsScreen = React.createClass({
@@ -21,35 +22,21 @@ var QuestionsScreen = React.createClass({
             </div>
         )
     },
-    nextQuestion: function () {
-        this.currentQuestion++
-        if(this.currentQuestion <= this.questionsJson.length){
-            this.setNextQuestionProperties()
-        }
-        else if(this.currentQuestion === this.questionsJson.length+1){
-            var main = this._reactInternalInstance._currentElement._owner._instance
-            main.showSummary()
-        }
-        
+    nextQuestion: function (markedAnswerNumber) {
+        QuestionsScreenUtil.nextQuestion.call(this, markedAnswerNumber)
+    },
+    checkAnswer: function(questionNumber, userAnswerNumber){
+        QuestionsScreenUtil.checkAnswer.call(this, questionNumber, userAnswerNumber)
     },
     setNextQuestionProperties: function () {
-        this.refs.navbar.changeQuestion(this.currentQuestion)
-        this.refs.question.changeQuestion(this.questionsJson[this.currentQuestion - 1].question.body)
-        this.refs.answers.changeAnswers([
-            this.questionsJson[this.currentQuestion - 1].choices[0].body,
-            this.questionsJson[this.currentQuestion - 1].choices[1].body,
-            this.questionsJson[this.currentQuestion - 1].choices[2].body,
-            this.questionsJson[this.currentQuestion - 1].choices[3].body,
-            this.questionsJson[this.currentQuestion - 1].choices[4].body
-        ])
+        QuestionsScreenUtil.setNextQuestionProperties.call(this)
+    },
+
+    initializeQuestions: function(){
+        QuestionsScreenUtil.initializeQuestions.call(this)
     },
     componentDidMount: function () {
-        var thisComponent = this
-        $.getJSON('../assets/inputFiles/questions.json', function (questionsJson) {
-            thisComponent.questionsJson = questionsJson
-            thisComponent.currentQuestion = 1
-            thisComponent.setNextQuestionProperties()
-        })
+        this.initializeQuestions()
     },
     hide: function(){
         $('#questionsScreen').addClass('hide')

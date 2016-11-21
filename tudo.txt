@@ -5,3 +5,4 @@
 5. navigate between questions in navbar
 6. add tests
 7. show error when no answer was chosen
+8.remove comments

@@ -1,4 +1,5 @@
 import React from 'react'
+import QuestionUtil  from '../util/questions/question'
 
 var Question = React.createClass({
     getInitialState: function(){

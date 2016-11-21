@@ -1,3 +1,11 @@
-#finished  {
+.generalTextColor  {
     color: rgba(255, 255, 255, 0.85);
+}
+.checkmark {
+    color: green;
+    padding-left: 15px;
+}
+.crossMark {
+    color: red;
+    padding-left: 15px;
 }
