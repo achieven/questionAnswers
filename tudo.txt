@@ -1,8 +1,0 @@
-1. add the correct answer (choice) and consider it during process
-2. check if can be without jquery
-3. check what should happen with html elements in the question body
-4. create summary screen
-5. navigate between questions in navbar
-6. add tests
-7. show error when no answer was chosen
-8.remove comments
