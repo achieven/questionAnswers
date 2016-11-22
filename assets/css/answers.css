@@ -14,6 +14,7 @@
 .form-control.answerRadioButton {
     height: auto;
     width: auto;
+    background-color: transparent;
 }
 .buttonAndAnswer {
     margin-bottom: 15px;
