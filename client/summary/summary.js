@@ -19,9 +19,7 @@ var Summary = React.createClass({
                     </div>
                     {this.state.questionsSummary || []}
                 </div>
-               
             </div>
-
         )
     },
     hide: function () {
@@ -33,17 +31,17 @@ var Summary = React.createClass({
     },
     renderQuestionSummary: function(correctAndIncorrectQuestions){
         var questionsSummary = []
+        var checkMarkSymbol = '&#10004;', crossMarkSymbol = '&#10006;'
         correctAndIncorrectQuestions.forEach(function(questionSummary, index){
             questionsSummary.push(
                 <QuestionSummary
                     key={index}
                     questionNumber={index +1}
-                    status={questionSummary.status}
                     userAnswer={questionSummary.userAnswerNumber}
-                    correctAnswerMessage={questionSummary.status? '' : 'Correct answer is: '}
+                    correctAnswerMessage={questionSummary.status? '' : 'Correct answer: '}
                     correctAnswer={questionSummary.status ? '' : questionSummary.correctAnswerNumber}
                     rightWrongClass={questionSummary.status ? 'checkmark' : 'crossMark'}
-                    rightWrongSymbol={questionSummary.status ? '&#10004;' : '&#10006;'}
+                    rightWrongSymbol={questionSummary.status ? checkMarkSymbol : crossMarkSymbol}
                 ></QuestionSummary>
             )
         })
