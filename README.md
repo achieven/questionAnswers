@@ -22,7 +22,7 @@ browser tests:
 Prerequisites:    
 geckodriver, firefox 47+ (included in PATH)    
 
-npm start
+npm start    
 npm run browserTests (on different window)    
 
 
