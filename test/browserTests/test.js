@@ -107,7 +107,7 @@ function clickAnswer() {
 }
 
 function testCurrentQuestionScreen() {
-    browser.findElement(By.className('currentQuestion')).then(function (numberCircleElement) {
+    browser.findElement(By.className('navbarCurrentQuestion')).then(function (numberCircleElement) {
         numberCircleElement.getText().then(function (numberCircleText) {
             assert.equal(numberCircleText, questionNumber)
             browser.findElements(By.className('answerTextMarked')).then(function (markedAnswerElements) {

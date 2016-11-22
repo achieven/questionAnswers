@@ -1,10 +1,28 @@
-.number-common-properties.currentQuestion {
+.navbarNumber.navbarCurrentQuestion {
    color: white;
+}
 
+
+.navbarRow {
+    position: relative;
+    margin-bottom: 30px;
 }
-.col-half-offset{
-    margin-left:4.166666667%;
-}
-.number-common-properties {
+.navbarNumber {
+    position: absolute;
     color: #1cc2f3;
+}
+#number1 {
+    left: 0;
+}
+#number2 {
+    left: 25%;
+}
+#number3 {
+    left: 50%;
+}
+#number4 {
+    left: 75%;
+}
+#number5 {
+    right: 0;
 }
