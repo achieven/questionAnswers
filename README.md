@@ -11,9 +11,7 @@ npm start
 To run tests:    
 npm i    
 
-unit tests:    
-Prerequisites:    
-mocha globally (npm i mocha -g)    
+unit tests:
 
 Type the following to command line:    
 npm run unitTests    

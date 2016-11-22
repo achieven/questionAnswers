@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "unitTests": "mocha test/unitTests",
+    "unitTests": "./node_modules/mocha/bin/mocha test/unitTests",
     "browserTests": "node test/browserTests/test.js",
     "start": "node index.js"
   },
