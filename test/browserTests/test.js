@@ -3,8 +3,8 @@ require('geckodriver')
 var webdriver = require('selenium-webdriver'), By = webdriver.By
 var browser = new webdriver.Builder().usingServer().withCapabilities({'browserName': 'firefox'}).build()
 
-
-browser.get('http://localhost:3000')
+const post = process.env.PORT || 3000
+browser.get('http://localhost:' + port)
 var questionNumber = 1
 
 
