@@ -1,5 +1,5 @@
 Prerequisites:    
-npm 2 or 3, node version > 4.4.5    
+npm 2 or 3, node version >= 4.4.5    
 git clone https://github.com/achieven/questionAnswers.git    
 cd questionAnswers    
 
