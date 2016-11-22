@@ -4,7 +4,7 @@ clone repository and cd into it
 
 To run app:
 
-Type the following to comand line:
+Type the following to comand line:    
 npm i --production    
 npm start    
 
