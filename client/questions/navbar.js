@@ -21,9 +21,9 @@ var Navbar = React.createClass({
     },
     changeQuestion: function(newQuestionNumber){
         if(this.questionNumber){
-            $('#number' + this.questionNumber).removeClass('numberCircle')
+            $('#number' + this.questionNumber).removeClass('currentQuestion')
         }
-        $('#number' + newQuestionNumber).addClass('numberCircle')
+        $('#number' + newQuestionNumber).addClass('currentQuestion')
         this.questionNumber = newQuestionNumber
     }
   

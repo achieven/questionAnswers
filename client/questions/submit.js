@@ -37,9 +37,6 @@ var Submit = React.createClass({
                 var markedAnswerNumber = markedAnswerElement.attr('id').replace('answerText', '')
                 questionsScreen.nextQuestion(markedAnswerNumber)
             }
-            else {
-                //programmer mistake
-            }
         })
     }
 })
