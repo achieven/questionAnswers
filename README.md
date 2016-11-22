@@ -6,7 +6,9 @@ To run app:
 
 Type the following to comand line:
 npm i --production    
-npm start
+npm start    
+
+Open browser at http://localhost:3000 (or if you have PORT environment variable then http://localhost:PORT)    
 
 To run tests:    
 npm i    
