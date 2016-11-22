@@ -63,20 +63,21 @@ function submitAndMoveToSummaryPage() {
                 element.getText().then(function (elementText) {
                     switch (index) {
                         case 1:
-                            assert.equal(elementText, 'Question number: 1, Status: false, You answered: 1,Correct answer is: 3✖')
+                            assert.equal(elementText, 'Question number: 1, Your answer: 1, Correct answer: 3✖')
                             break
                         case 2:
-                            assert.equal(elementText, 'Question number: 2, Status: false, You answered: 1,Correct answer is: 5✖')
+                            assert.equal(elementText, 'Question number: 2, Your answer: 1, Correct answer: 5✖')
                             break
                         case 3:
-                            assert.equal(elementText, 'Question number: 3, Status: true, You answered: 1✔')
+                            assert.equal(elementText, 'Question number: 3, Your answer: 1✔')
                             break
                         case 4:
-                            assert.equal(elementText, 'Question number: 4, Status: false, You answered: 1,Correct answer is: 4✖')
+                            assert.equal(elementText, 'Question number: 4, Your answer: 1, Correct answer: 4✖')
                             break
                         case 5:
-                            assert.equal(elementText, 'Question number: 5, Status: false, You answered: 1,Correct answer is: 4✖')
+                            assert.equal(elementText, 'Question number: 5, Your answer: 1, Correct answer: 4✖')
                             console.log('finished!')
+                            browser.quit()
                             break
                         default:
                             break
@@ -106,7 +107,7 @@ function clickAnswer() {
 }
 
 function testCurrentQuestionScreen() {
-    browser.findElement(By.className('numberCircle')).then(function (numberCircleElement) {
+    browser.findElement(By.className('navbarCurrentQuestion')).then(function (numberCircleElement) {
         numberCircleElement.getText().then(function (numberCircleText) {
             assert.equal(numberCircleText, questionNumber)
             browser.findElements(By.className('answerTextMarked')).then(function (markedAnswerElements) {

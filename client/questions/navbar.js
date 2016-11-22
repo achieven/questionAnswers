@@ -9,21 +9,21 @@ var Navbar = React.createClass({
     render: function () {
         return (
             <div className="container">
-                <div className="row-fluid">
-                    <div className="col-xs-2 number-common-properties" id="number1">1</div>
-                    <div className="col-xs-2 number-common-properties col-half-offset" id="number2">2</div>
-                    <div className="col-xs-2 number-common-properties col-half-offset" id="number3">3</div>
-                    <div className="col-xs-2 number-common-properties col-half-offset" id="number4">4</div>
-                    <div className="col-xs-2 number-common-properties col-half-offset" id="number5">5</div>
+                <div className="row-fluid navbarRow">
+                    <div className="navbarNumber" id="number1">1</div>
+                    <div className="navbarNumber" id="number2">2</div>
+                    <div className="navbarNumber" id="number3">3</div>
+                    <div className="navbarNumber" id="number4">4</div>
+                    <div className="navbarNumber" id="number5">5</div>
                 </div>
             </div>
         )
     },
     changeQuestion: function(newQuestionNumber){
         if(this.questionNumber){
-            $('#number' + this.questionNumber).removeClass('numberCircle')
+            $('#number' + this.questionNumber).removeClass('navbarCurrentQuestion')
         }
-        $('#number' + newQuestionNumber).addClass('numberCircle')
+        $('#number' + newQuestionNumber).addClass('navbarCurrentQuestion')
         this.questionNumber = newQuestionNumber
     }
   

@@ -13,9 +13,7 @@ Open browser at http://localhost:3000 (or if you have PORT environment variable 
 To run tests:    
 npm i    
 
-unit tests:    
-Prerequisites:    
-mocha globally (npm i mocha -g)    
+unit tests:
 
 Type the following to command line:    
 npm run unitTests    
