@@ -1,5 +1,5 @@
 Prerequisites:    
-npm, node
+npm, node    
 clone repository and cd into it
 
 To run app:
