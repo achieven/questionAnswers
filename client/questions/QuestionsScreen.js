@@ -7,9 +7,6 @@ import QuestionsScreenUtil from '../util/questions/questionsScreen'
 
 
 var QuestionsScreen = React.createClass({
-    getInitialState: function () {
-        return {}
-    },
     render: function () {
         return (
             <div id="questionsScreen">
