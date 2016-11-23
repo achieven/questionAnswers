@@ -1,6 +1,7 @@
 Prerequisites:    
-npm, node    
-clone repository and cd into it
+npm 2 or 3, node version >= 4.4.5    
+git clone https://github.com/achieven/questionAnswers.git    
+cd questionAnswers    
 
 To run app:
 
