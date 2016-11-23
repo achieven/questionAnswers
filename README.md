@@ -12,7 +12,7 @@ npm start
 Open browser at http://localhost:3000 (or if you have PORT environment variable then http://localhost:PORT)    
 
 To run tests:    
-npm i    
+npm i (if you already installed production mode you can just write npm i --only=dev)    
 
 unit tests:
 
