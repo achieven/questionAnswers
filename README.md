@@ -26,6 +26,6 @@ geckodriver, firefox 47+ (included in PATH)
 Type the following to command line:    
 npm i selenium-webdriver@3.0.0-beta-2    
 npm start    
-npm run browserTests (on different window)    
+npm run browserTests (on different window)       
 
 
